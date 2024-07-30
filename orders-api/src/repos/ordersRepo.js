@@ -1,7 +1,7 @@
 const { Client } = require('@elastic/elasticsearch')
 
 const client = new Client({
-    node:'<ip>'
+    node: 'https://elastic:MLVp8D9AJQ4Y7lhO1FGC5jbQ@b4f5e59d9b0543aa82da38bff878f665.us-central1.gcp.cloud.es.io'
 });
 
 

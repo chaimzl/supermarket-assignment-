@@ -1,17 +1,24 @@
 import React from "react";
 import { ProductItem as ProductItemProps } from "../../app/types/ProductItem.type";
 import { IconButton } from "@mui/material";
+import { useDispatch } from 'react-redux';
+
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { addToCart } from "../../app/slices/cartSlice";
 
 export const ProductItem = (props: ProductItemProps) => {
+  const dispatch = useDispatch();
+
+const handleAddToCartClick=(e:any)=>{
+    dispatch(addToCart({...props, count:1}))
+}
+
   return (
     <>
      <div className="bg-white  rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
-     
       <div className="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full  cursor-pointer absolute top-4 left-4">
-       
         <IconButton
-        
+        onClick={handleAddToCartClick}
         color="primary"
         aria-label="add to shopping cart"
       >

@@ -10,6 +10,8 @@ import { OrderPage } from "../features/order/order-page";
 import "primereact/resources/themes/lara-light-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import { TopMenu } from "../shared/top-menu/top-menu";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 function App() {
   const theme = (outerTheme: Theme) =>
@@ -23,6 +25,7 @@ function App() {
   });
 
   return (
+    <Provider store={store}>
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
         <div dir="rtl">
@@ -36,6 +39,7 @@ function App() {
         </div>
       </ThemeProvider>
     </CacheProvider>
+    </Provider >
   );
 }
 

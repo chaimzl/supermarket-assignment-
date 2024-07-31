@@ -1,4 +1,5 @@
-const express = require("express"); 
+const express = require("express");
+const cors = require('cors') 
 const bodyParser = require("body-parser");
 
 const v1Router = require("./routes");
@@ -9,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use("/api/orders/", v1Router);
  
 

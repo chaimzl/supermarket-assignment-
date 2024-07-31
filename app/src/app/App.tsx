@@ -29,8 +29,9 @@ function App() {
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
         <div dir="rtl">
-          <TopMenu />
+         
           <Router>
+          <TopMenu />
             <Routes>
               <Route path="/products" element={<ProductsPage />} />
               <Route path="/order" element={<OrderPage />} />

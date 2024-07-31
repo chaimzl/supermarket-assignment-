@@ -10,7 +10,7 @@ router.route("/healthcheck").get((req, res) => {
 
 
 router.post("/create-order", ordersController.setOrder)
-router.post("/", ordersController.getOrders)
+router.get("/", ordersController.getOrders)
 
 
 module.exports = router;

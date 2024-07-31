@@ -1,4 +1,6 @@
 ﻿
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
+
 namespace products_api
 {
     public class ProductsService : IProductService
@@ -8,9 +10,15 @@ namespace products_api
         {
             _repo = repo;
         }
-        public async Task<List<Product>> GetProductsAsync()
+
+        public async Task<List<ProductCategory>> GetCategoriesAsync()
         {
-            return await _repo.GetProductsAsync();
+            return await _repo.GetCategoriesAsync();
+        }
+
+        public async Task<List<Product>> GetProductsAsync(int? categoryID, string? keyword)
+        {
+            return await _repo.GetProductsAsync( categoryID,  keyword);
         }
     }
 }

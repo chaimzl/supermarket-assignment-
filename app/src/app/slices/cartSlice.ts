@@ -24,10 +24,14 @@ export const cartSlice = createSlice({
 
             }
         },
+        emptyCart: (state) => {
+          
+                    state?.data?.splice(0, state?.data.length);
+            }
        
     }
 })
 
-export const { addToCart } = cartSlice.actions
+export const { addToCart,emptyCart } = cartSlice.actions
 
 export default cartSlice.reducer

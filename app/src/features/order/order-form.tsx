@@ -2,11 +2,17 @@ import { Controller, useForm } from "react-hook-form";
 import { OrderDetails } from "../../app/types/Order.type";
 import { FormTextField } from "../../libs/form/form-text-field";
 import { Button } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import { api } from "../../app/api";
+import { useNavigate } from "react-router-dom";
+import { emptyCart } from "../../app/slices/cartSlice";
 
 export const OrderForm = () => {
+  
+  const nevigate = useNavigate();
+  const dispatch = useDispatch();
+
   const orderedList = useSelector((state: RootState) =>
     state?.cart?.data
   );
@@ -34,7 +40,8 @@ export const OrderForm = () => {
       items:orderedList
     }
     await api.setOrder(orderDetails).then(res=> {
-      
+      dispatch(emptyCart())
+      nevigate('/products')
     });
   };
 

@@ -25,7 +25,7 @@ export const TopMenu = (props: any) => {
             <ShoppingCartIcon className="h-15 w-15" />
           </Badge>
           <Button
-            onClick={() => {nevigate('order')}}
+            onClick={() => {nevigate('/order')}}
             className={`ms-3 ${productCount > 0 ? "" : "invisible"} `}
             variant="contained"
             color="success"

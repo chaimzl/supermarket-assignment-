@@ -3,12 +3,12 @@ import axios from "axios";
 
 export const api = {
   async getProducts(categoryId?:number, keyword?:string) {
-    const response = await axios.get(`http://localhost:5071/api/products?${categoryId?'categoryID='+categoryId:''}&keyword=${keyword}`);
+    const response = await axios.get(`https://productsapi-lyd3loo7oa-zf.a.run.app/api/products?${categoryId?'categoryID='+categoryId:''}&keyword=${keyword}`);
 
     return response.data;
   },
   async getProductsCategories() {
-    const response = await axios.get("http://localhost:5071/api/categories");
+    const response = await axios.get("https://productsapi-lyd3loo7oa-zf.a.run.app/api/categories");
     return response.data;
   },
   async setOrder(post: any) {
